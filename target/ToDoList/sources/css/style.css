@@ -1,0 +1,43 @@
+.container{
+    max-width: 990px;
+    margin: 100px auto;
+}
+
+h1{
+    color: blue;
+    font-size: 35px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.block{
+    background-color: #d5d2d2;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.element{
+    background-color: #2e2ec5;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+.checkbox{
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+}
+
+.new{
+    text-decoration: none;
+    background-color: transparent;
+    color: #2e2ec5;
+    border: 2px solid #2e2ec5;
+    padding: 10px 20px;
+    border-radius: 7px;
+}
+.new:hover{
+    background-color: #2e2ec5;
+    color: white;
+}

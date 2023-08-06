@@ -1,0 +1,28 @@
+.container{
+    max-width: 990px;
+    margin: 100px auto;
+}
+
+
+.label{
+    color: #2e2ec5;
+    display: block;
+}
+
+.input{
+    width: 70%;
+    outline: #2e2ec5;
+    color: #2e2ec5;
+}
+
+.smb{
+    background-color: transparent;
+    border: 2px solid #2e2ec5;
+    color: #2e2ec5;
+    margin-top: 7px;
+    border-radius: 7px;
+}
+.smb:hover{
+    color: #fff;
+    background-color: #2e2ec5;
+}

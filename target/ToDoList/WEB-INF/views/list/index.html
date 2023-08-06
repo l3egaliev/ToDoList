@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/sources/css/style.css"></li>
+</head>
+<body>
+    <div class="container">
+        <h1>To Do List</h1>
+
+        <div th:each="task : ${tasks}" class="block">
+            <input type="checkbox"  id="name" class="checkbox">
+            <p th:text="${task.getName()}" class="element"></p>
+
+            <form th:method="DELETE" th:action="@{/list/{id}(id=${task.getId()})}" th:object="${task}">
+                <input type="submit" value="Delete task">
+            </form>
+        </div>
+
+
+        <a href="/list/new" class="new">Добавить задачу</a>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Task</title>
+    <link rel="stylesheet" href="/sources/css/new.css"></li>
+</head>
+<body>
+    <div class="container">
+        <form th:method="POST" th:action="@{/list}" th:object="${newTask}">
+            <label for="name" class="label">Новая задача: </label>
+            <input type="text" id="name" th:field="*{name}" class="input">
+            <br>
+            <input type="submit" value="Добавить!" class="smb">
+        </form>
+    </div>
+</body>
+</html>
