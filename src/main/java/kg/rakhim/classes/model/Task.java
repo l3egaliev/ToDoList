@@ -11,9 +11,9 @@ public class Task {
     public Task() {
     }
 
-    public Task(int id, String name) {
+    public Task(int id, String task_name) {
         this.id = id;
-        this.name = name;
+        this.name = task_name;
     }
 
 
