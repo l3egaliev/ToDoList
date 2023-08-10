@@ -1,10 +1,12 @@
 package kg.rakhim.classes.controllers;
 
+import jakarta.validation.Valid;
 import kg.rakhim.classes.dao.TaskDAO;
 import kg.rakhim.classes.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -30,7 +32,10 @@ public class ToDoController {
     }
 
     @PostMapping
-    public String addTask(@ModelAttribute("newTask") Task task){
+    public String addTask(@ModelAttribute("newTask") @Valid Task task, BindingResult bindingResult){
+        if (bindingResult.hasErrors())
+            return "list/new";
+
         taskDAO.addTask(task);
         return "redirect:/list";
     }

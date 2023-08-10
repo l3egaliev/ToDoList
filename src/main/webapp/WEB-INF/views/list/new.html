@@ -10,6 +10,7 @@
         <form th:method="POST" th:action="@{/list}" th:object="${newTask}">
             <label for="name" class="label">Новая задача: </label>
             <input type="text" id="name" th:field="*{name}" class="input">
+            <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
             <br>
             <input type="submit" value="Добавить!" class="smb">
         </form>
