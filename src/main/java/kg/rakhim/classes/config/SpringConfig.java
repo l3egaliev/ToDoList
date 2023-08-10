@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.*;
@@ -13,16 +15,20 @@ import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
-import java.sql.DriverManager;
+import java.util.Objects;
 
 @Configuration
 @ComponentScan("kg.rakhim.classes")
 @EnableWebMvc
+@PropertySource("classpath:db.properties")
 public class SpringConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
+    private Environment environment;
+
     @Autowired
-    public SpringConfig(ApplicationContext applicationContext) {
+    public SpringConfig(ApplicationContext applicationContext, Environment environment) {
         this.applicationContext = applicationContext;
+        this.environment = environment;
     }
 
     @Bean
@@ -70,10 +76,10 @@ public class SpringConfig implements WebMvcConfigurer {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUsername("root");
-        dataSource.setPassword("testtest");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/todo_list");
+        dataSource.setDriverClassName(Objects.requireNonNull(environment.getProperty("driver")));
+        dataSource.setUsername(environment.getProperty("user"));
+        dataSource.setPassword(environment.getProperty("password"));
+        dataSource.setUrl(environment.getProperty("url"));
 
         return dataSource;
     }
