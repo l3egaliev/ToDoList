@@ -35,9 +35,9 @@ public class ToDoController {
         return "redirect:/list";
     }
 
-    @DeleteMapping("{name}")
-    public String delete(@PathVariable("name") String name){
-        taskDAO.delete(name);
+    @DeleteMapping("{id}")
+    public String delete(@PathVariable("id") int id){
+        taskDAO.delete(id);
         return "redirect:/list";
     }
 }

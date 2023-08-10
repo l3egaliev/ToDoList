@@ -13,8 +13,8 @@
             <input type="checkbox"  id="name" class="checkbox">
             <p th:text="${task.getName()}" class="element"></p>
 
-            <form th:method="DELETE" th:action="@{/list/{name}(name=${task.getName()})}" th:object="${task}">
-                <input type="submit" value="Delete task">
+            <form th:method="DELETE" th:action="@{/list/{id}(id=${task.getId()})}" th:object="${task}" >
+                <input type="submit" value="Delete task" class="delete">
             </form>
         </div>
 

@@ -41,3 +41,15 @@ h1{
     background-color: #2e2ec5;
     color: white;
 }
+
+.delete{
+    background-color: white;
+    color: #2e2ec5;
+    outline: 1px solid #2e2ec5;
+    border-radius: 3px;
+}
+.delete:hover{
+    background-color: blue;
+    color: white;
+    outline: blue;
+}
