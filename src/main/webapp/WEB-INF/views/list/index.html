@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/sources/css/style.css"></li>
+    <link rel="stylesheet" href="/sources/css/new.css"></li>
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,13 @@
         </div>
 
 
-        <a href="/list/new" class="new">Добавить задачу</a>
+        <form th:method="POST" th:action="@{/list}" th:object="${newTask}">
+            <label for="newName" class="label">Новая задача: </label>
+            <input type="text" id="newName" th:field="*{name}" class="input">
+            <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+            <br>
+            <input type="submit" value="Добавить!" class="smb">
+        </form>
 
     </div>
 </body>

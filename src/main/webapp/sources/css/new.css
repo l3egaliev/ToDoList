@@ -11,6 +11,7 @@
 
 .input{
     width: 70%;
+    border-radius: 10px;
     outline: #2e2ec5;
     color: #2e2ec5;
 }

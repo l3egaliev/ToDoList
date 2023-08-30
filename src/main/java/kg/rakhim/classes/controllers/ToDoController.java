@@ -20,21 +20,16 @@ public class ToDoController {
     }
 
     @GetMapping
-    public String list(Model model){
+    public String list(Model model, @ModelAttribute("newTask") Task task){
         model.addAttribute("tasks", taskDAO.listTasks());
         return "list/index";
     }
 
-    @GetMapping("/new")
-    public String newTask(Model model){
-        model.addAttribute("newTask", new Task());
-        return "list/new";
-    }
 
-    @PostMapping
+    @PostMapping()
     public String addTask(@ModelAttribute("newTask") @Valid Task task, BindingResult bindingResult){
         if (bindingResult.hasErrors())
-            return "list/new";
+            return "list/index";
 
         taskDAO.addTask(task);
         return "redirect:/list";
